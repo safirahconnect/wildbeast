@@ -6,8 +6,9 @@
 }
 
 :root {
-  --font: "Volkhov";
+  --gradient: linear-gradient(135deg, #84e, #b07dfb);
   --spacing: 1.875rem;
+  --font: "Volkhov";
   font: 100%/1.25 var(--font);
 }
 
@@ -22,6 +23,7 @@ a {
 img {
   max-width: 100%;
   display: block;
+  border-radius: 5px;
 }
 
 /*grid structure*/
@@ -37,7 +39,7 @@ img {
 /*header */
 .header {
   grid-area: header;
-  background: linear-gradient(135deg, #84e, #b07dfb);
+  background: var(--gradient);
   padding: var(--spacing);
   display: grid;
   grid-template-columns: 1fr auto;
@@ -51,7 +53,7 @@ img {
 .header__menu {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--spacing);
 }
 
 .header__menu-item {
@@ -99,10 +101,24 @@ img {
   grid-area: content;
 }
 
+/*ads*/
 .ads {
   grid-area: ads;
+  background: #fafbfc;
+  display: grid;
+  align-content: start;
+  gap: var(--spacing);
+  padding: var(--spacing);
 }
 
+/*footer*/
 .footer {
   grid-area: footer;
+  background: var(--gradient);
+}
+
+.footer__text {
+  color: #fff;
+  padding: var(--spacing);
+  text-align: center;
 }
