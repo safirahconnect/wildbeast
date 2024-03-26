@@ -25,8 +25,7 @@ a {
 }
 
 img {
-  width: 100%;
-  /* max-width: 100%; */
+  width: 100%; /*use wisely, choose instead max-width:100%*/
   display: block;
   border-radius: 5px;
 }
@@ -315,6 +314,7 @@ img {
   grid-area: ads;
   background: #fafbfc;
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   align-content: start;
   gap: var(--spacing);
   padding: var(--spacing);
