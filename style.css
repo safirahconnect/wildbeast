@@ -12,6 +12,10 @@
   font: 100%/1.25 var(--font);
 }
 
+body {
+  container: structure / inline-size;
+}
+
 ul {
   list-style: none;
 }
@@ -21,7 +25,8 @@ a {
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
+  /* max-width: 100%; */
   display: block;
   border-radius: 5px;
 }
@@ -34,6 +39,28 @@ img {
     "header header header"
     "sidebar content ads"
     "footer footer footer";
+}
+
+@container structure (max-width: 1200px) {
+  .grid-structure {
+    grid-template-areas:
+      "header header header"
+      "sidebar content content"
+      "sidebar ads ads"
+      "footer footer footer";
+  }
+}
+
+@container structure (max-width: 760px) {
+  .grid-structure {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "content"
+      "ads"
+      "footer";
+  }
 }
 
 /*header */
@@ -70,6 +97,19 @@ img {
   background: rgba(0, 0, 0, 0.5);
 }
 
+@container structure (max-width: 760px) {
+  .header {
+    grid-template-columns: auto;
+    gap: calc(var(--spacing) / 2);
+  }
+  .header__menu {
+    gap: calc(var(--spacing) / 3);
+  }
+  .header__menu-item {
+    font-size: 1rem;
+  }
+}
+
 /*sidebar*/
 .sidebar {
   grid-area: sidebar;
@@ -84,8 +124,8 @@ img {
 .sidebar__item {
   display: block;
   background: #fff;
-  min-width: 60px;
-  max-width: 100px;
+  min-width: 100px;
+  max-width: 120px;
   margin: 0 auto;
   padding: 1.125em;
   border-radius: 5px;
@@ -95,6 +135,37 @@ img {
 
 .sidebar__item:hover {
   background: #b07dfb;
+}
+
+@keyframes seta {
+  from {
+    right: 30px;
+  }
+  to {
+    right: 20px;
+  }
+}
+
+@container structure (max-width: 760px) {
+  .sidebar-area {
+    overflow-x: auto;
+    position: relative;
+  }
+  .sidebar-area::before {
+    content: "→";
+    position: absolute;
+    right: 30px;
+    color: rgba(0, 0, 0, 0.3);
+    animation: seta 0.5s ease-in 0s infinite alternate;
+  }
+  .sidebar {
+    display: flex;
+    gap: var(--spacing);
+  }
+  .sidebar > * {
+    flex: 1 0 100px;
+    margin-top: 0;
+  }
 }
 
 /*content*/
@@ -231,6 +302,12 @@ img {
 
 .content__img-area:has([alt="Wolf 3"]) {
   grid-column: 1/-1;
+}
+
+@container structure (max-width: 600px) {
+  .content {
+    grid-template-columns: auto;
+  }
 }
 
 /*ads*/
