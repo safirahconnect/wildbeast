@@ -87,7 +87,7 @@ img {
   min-width: 60px;
   max-width: 100px;
   margin: 0 auto;
-  padding: 1.125rem;
+  padding: 1.125em;
   border-radius: 5px;
   box-shadow: 5px 5px 15px 0 rgba(44, 44, 44, 0.15);
   transition: 0.1s ease-out;
@@ -97,8 +97,140 @@ img {
   background: #b07dfb;
 }
 
+/*content*/
 .content {
   grid-area: content;
+  max-width: 900px;
+  margin-inline: auto;
+  padding: var(--spacing);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing);
+}
+
+.content__title-area {
+  color: #b07dfb;
+}
+
+.content__title {
+  font-size: 3.75rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.content__subtitle {
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+.content__characteristics {
+  display: flex;
+  gap: var(--spacing);
+  align-items: center;
+}
+
+.content__characteristic {
+  flex-basis: 80px;
+  box-shadow: 5px 5px 15px 0 rgba(44, 44, 44, 0.15);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.content__characteristic .number {
+  border-radius: 5px 5px 0 0;
+  background: var(--gradient);
+  color: #b07dfb;
+  font-size: 3rem;
+  line-height: 1;
+  padding: 0.25em;
+}
+
+.content__characteristic .label {
+  background: #fff;
+  color: #b07dfb;
+  padding: 0.25em;
+  border-radius: 0 0 5px 5px;
+}
+
+.content__text--grid {
+  grid-column: 1/-1;
+}
+
+.content__img-area:has([alt="Wolf 1"]) {
+  grid-row: span 2;
+  align-self: end;
+}
+
+.content__text-area > * + * {
+  margin-top: var(--spacing);
+}
+
+.content__text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.content__text--purple {
+  color: #b07dfb;
+}
+
+.content__text--sm {
+  font-size: 0.875rem;
+  max-width: 30ch;
+}
+
+.content__quote-area,
+.content__list {
+  background: var(--gradient);
+  box-shadow: 5px 5px 15px 0 rgba(44, 44, 44, 0.15);
+  border-radius: 5px;
+  padding: var(--spacing);
+}
+
+.content__quote-area {
+  grid-column: 1/-1;
+}
+
+.content__quote {
+  font-size: 1.5rem;
+  color: #fff;
+  font-style: italic;
+  max-width: 30ch;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.content__list {
+  grid-column: 1;
+  align-self: start;
+}
+
+.content__list > * + * {
+  margin-top: var(--spacing);
+  position: relative;
+}
+
+.content__list > * + *::before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #b07dfb;
+  position: absolute;
+  top: -15px;
+}
+
+.content__item {
+  font-family: Courier, monospace;
+  font-size: 1.125rem;
+  color: #fff;
+}
+
+.content__img-area:has([alt="Wolf 3"]) {
+  grid-column: 1/-1;
 }
 
 /*ads*/
