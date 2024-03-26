@@ -7,6 +7,7 @@
 
 :root {
   --font: "Volkhov";
+  --spacing: 1.875rem;
   font: 100%/1.25 var(--font);
 }
 
@@ -37,7 +38,7 @@ img {
 .header {
   grid-area: header;
   background: linear-gradient(135deg, #84e, #b07dfb);
-  padding: 1.875rem;
+  padding: var(--spacing);
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
@@ -67,8 +68,31 @@ img {
   background: rgba(0, 0, 0, 0.5);
 }
 
+/*sidebar*/
 .sidebar {
   grid-area: sidebar;
+  background: #fafbfc;
+  padding: var(--spacing);
+}
+
+.sidebar > * + * {
+  margin-top: var(--spacing);
+}
+
+.sidebar__item {
+  display: block;
+  background: #fff;
+  min-width: 60px;
+  max-width: 100px;
+  margin: 0 auto;
+  padding: 1.125rem;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0 rgba(44, 44, 44, 0.15);
+  transition: 0.1s ease-out;
+}
+
+.sidebar__item:hover {
+  background: #b07dfb;
 }
 
 .content {
